@@ -15,7 +15,11 @@ struct LoginView: View {
                 //header
                 HeaderView(title: "ToDo List", subtittle: "Get things done", angle: 15, background: .pink)
                 // Login Form
+       
                 Form {
+                    if(!viewModel.errorMessage.isEmpty){
+                        Text(viewModel.errorMessage).foregroundColor(.red)
+                    }
                     TextField("Email", text: $viewModel.email
                     )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -25,7 +29,7 @@ struct LoginView: View {
 
                     TLButton(title: "Login",background: .blue)
                     {
-                        //attempt login
+                        viewModel.login()
                     }
                 }
                 //create Account
