@@ -25,7 +25,7 @@ struct RegisterView: View {
                     .textFieldStyle(DefaultTextFieldStyle())
                 TLButton(title: "create account",background: .green)
                 {
-                    // attempt registration
+                   viewModal.register() 
                 }
                 
             }.offset(y:-50)

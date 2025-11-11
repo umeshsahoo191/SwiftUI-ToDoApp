@@ -4,21 +4,22 @@
 //
 //  Created by Umesh Sahoo on 13/08/25.
 //
+import FirebaseAuth
+import Foundation
 
-import SwiftUI
-
-struct MainViewViewModel: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+class MainViewViewModel: ObservableObject {
+    @Published var currentUserId: String = ""
+    private var handler : AuthStateDidChangeListenerHandle?
+    
+    init() {
+        self.handler = Auth.auth().addStateDidChangeListener{ [weak self] _, user in
+            DispatchQueue.main.async {
+            self?.currentUserId = user?.uid ?? ""
+            }
         }
-        .padding()
     }
-}
-
-#Preview {
-    MainViewViewModel()
-}
+        public var isSignedIn: Bool {
+            return Auth.auth().currentUser != nil
+        }
+    }
+    

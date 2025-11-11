@@ -1,18 +1,24 @@
-//
-//  NewItemView.swift
-//  ToDoList
-//
-//  Created by Umesh Sahoo on 13/08/25.
-//
+import Foundation
 
-import SwiftUI
+//flatlist
+class NewItemViewViewModel: ObservableObject {
+    @Published var title: String = ""
+    @Published var dueDate = Date()
+    @Published var showAlert = false
 
-struct NewItemViewViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    init() {}
+    func save()
+    {
+        
+    }
+    var canSave: Bool {
+        guard !title.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return false
+        }
+        guard dueDate >= Date().addingTimeInterval(-86400) else {
+            return false
+        }
+        return true
     }
 }
 
-#Preview {
-    NewItemViewViewModel()
-}

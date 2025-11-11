@@ -5,14 +5,11 @@
 //  Created by Umesh Sahoo on 13/08/25.
 //
 
-import SwiftUI
+import Foundation
+ //viewModal for list of items view
+ //flatlist
+class TodoListViewViewModel: ObservableObject {
+    @Published var showingNewViewItem = false
 
-struct TodoListViewViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    TodoListViewViewModel()
+    init() {}
 }

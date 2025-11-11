@@ -5,14 +5,10 @@
 //  Created by Umesh Sahoo on 13/08/25.
 //
 
-import SwiftUI
+import Foundation
 
-struct ProfileViewViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+//flatlist
+class ProfileViewViewModel: ObservableObject {
+    init() {}
 }
 
-#Preview {
-    ProfileViewViewModel()
-}

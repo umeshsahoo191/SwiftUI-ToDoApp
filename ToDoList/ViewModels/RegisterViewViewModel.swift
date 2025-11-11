@@ -23,7 +23,6 @@ class RegisterViewViewModel: ObservableObject {
             guard let userId = result?.user.uid else {
                 return
             }
-            
             self?.insertUserRecord(id:userId)
         }
         
