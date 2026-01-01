@@ -1,10 +1,14 @@
+import FirebaseFirestore
 import SwiftUI
 
 struct TodoListView: View {
     @StateObject var viewModel = TodoListViewViewModel()
     private let userId: String
+    @FirestoreQuery var items: [TodoListItem]
+    
     init(userId:String) {
         self.userId = userId
+        // user id for fetching todolist item
     }
     
     var body: some View {

@@ -1,19 +1,29 @@
-//
-//  ProfileView.swift
-//  ToDoList
-//
-//  Created by Umesh Sahoo on 13/08/25.
-//
-
 import SwiftUI
+
 struct ProfileView: View {
     @StateObject var viewModel = ProfileViewViewModel()
+
     var body: some View {
-        NavigationView{
-            VStack{
-                
+        NavigationView {
+            VStack(spacing: 20) {
+
+                Spacer()
+
+                Button(action: {
+                    viewModel.logout()
+                }) {
+                    Text("Logout")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+
+                Spacer()
             }
-            .navigationTitle(("Profile Details"))
+            .padding()
+            .navigationTitle("Profile Details")
         }
     }
 }
